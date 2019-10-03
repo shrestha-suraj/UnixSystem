@@ -1,0 +1,41 @@
+echo "Practicing Loops in Unix Cmd Line: for while and until"
+
+#Looping with for i in values
+for i in 1 2 3 4 5 6 7 8 9
+do
+echo "The value of i is $i"
+done
+
+#Looping with for i (Need to pass arguments while runnning the file)
+for i
+do
+echo "The value passed in argument is: $i"
+done
+
+#Looping with while [condition]
+i="1"
+while [ "$i" -le 5 ]
+do
+echo "$i"
+i=$(($i+1))
+done
+
+#Looping with while and shift
+while [ $# -ne 3 ]
+do
+echo "$1"
+shift
+done
+echo "This is the part where until loop takes over"
+#looing with until [condition] >>This loop won't run cause the while loop shifted all the contents and now there is no value of $1 to work on.
+until [ "$1" = "" ]
+do
+echo "$1"
+shift
+done
+
+#break N is used to break out of loops with n times . Say you have for loop and inside that loop there is a while loop. In order to get out of both loops, we need to use break 2 and if we need to come out of just nested while loop, we use break
+
+#continue N also works in similar pattern
+
+
