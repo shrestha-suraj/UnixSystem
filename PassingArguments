@@ -1,0 +1,18 @@
+echo In Unix the values for passing arguments are hold by '$' and the respective number introduced.
+echo '$1 is first argument passed : '$1
+echo '$2 is first argument passed : '$2
+echo '$3 is first argument passed : '$3
+echo '$4 is first argument passed : '$4
+echo '$# is the number of arguments passed: '$#
+echo '$* is the collection of all arguments passed:'
+echo $*
+echo 'shift command helps to eliminate first argument and shift other arguments towas the left index'
+echo 'Example:'
+echo 'Argumennts are:'
+echo $*
+echo 'shift'
+shift
+echo $*
+echo 'shift'
+shift
+echo $*
