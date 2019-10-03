@@ -1,0 +1,28 @@
+echo 'This part is to study about conditional statements.'
+echo 'The code runs only if the condition exits with value 0.'
+echo '$? is used to check the exit status of last code executed.'
+echo 'For example'
+echo 'cp Apple.txt Ball.txt'
+cp Apple.txt Ball.txt
+echo 'Value of $? is '$?
+echo 'The code did not run because there are no such files so exit status is not 0.'
+echo '<------------------Using if statemtn now-------------------->'
+echo 'New command using: who > Displays the users active on the syste,'
+echo '>> is used to output the result of if who| grep $1 to garbage collecord.'
+echo 'The syntax is if who | grep $1 > /dev/null'
+if who | grep "$1" > /dev/null
+then
+echo "$1 is logged in"
+fi
+
+echo 'for conditions we write if test args1 = args2 then (Spaces is necessary)'
+echo 'Modern technique: if [ args1 = args2] then (Command)'
+echo 'Example:Say x=1 lets see if the prgoram works when we compare x and 1'
+
+x=1
+if [ "$x" = 1]
+then
+echo "X is equal to 1"
+else
+echo "X is not equal to 1"
+fi
