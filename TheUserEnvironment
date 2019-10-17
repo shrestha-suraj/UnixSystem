@@ -1,0 +1,29 @@
+echo "<---------------------The Export Command-------------------------->"
+echo "Three varables were declared in the main terminal and they were exported to theis file using export command"
+echo "$i"
+echo "$j"
+echo "$k"
+
+echo "<--------------------The dot command------------------------------>"
+echo "The dot command makes script or other program to run on current shell"
+echo "For example: I will declare a variable hello with message Suraj"
+hello="Suraj"
+echo "Done"
+echo "Now go to other shell type . this_file_name and then call DollarHello. It wil  run"
+echo "<----------------------PS1 and PS2------------------------------>"
+echo "They give information about the command prompt in use."
+echo "Here is the result when I echoed PS1 and PS2"
+echo "PS1 RESULT:"
+echo $PS1
+echo "PS2 RESULT:"
+echo $PS2
+echo "Changes to the environment variables like PS1 and PS2 can be made permanently by editing .profile file"
+echo "<------------------Accesing Contents of .profile file------------->"
+echo "Seeing your home directoyr is simple just echoed DollarHOME"
+echo $HOME
+echo "Seeing all the Paths present in your configuration just echoed DollarPATH"
+echo $PATH
+echo "Each path is seperated by colan. When we type a command or run a program, the process is checked against all the paths and if no result found and error is popped out. This one is simple as I have used it a lot in windows."
+echo  ""
+echo ""
+echo "The profile file is in etc/profile and is controlled by system admin for general settings for all users. The .profile file is presenti in the home directory but since it has dot its hidden. This file is present for each user and can include any commands user wnats automatiicaly executed when you log in"
