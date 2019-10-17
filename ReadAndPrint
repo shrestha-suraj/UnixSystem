@@ -1,0 +1,45 @@
+echo "Enter any two words you like where each word is followed by space"
+read word1 word2
+echo "$word1" > word1
+echo "$word2" > word2
+count1=$(wc -m word1)
+count2=$(wc -m word2)
+echo "$count1"
+echo "$count2"
+echo  "Same code but now enter three words. The code is same nothing has been changed in it"
+
+echo "Enter any two words you like where each word is followed by a space"
+read word1 word2
+echo "$word1" > word1
+echo "$word2" > word2
+count1=$(wc -m word1)
+count2=$(wc -m word2)
+echo "$count1"
+echo "$count2"
+
+echo "<-----------------------Reading in same line--------------------->"
+echo -e "Enter two words: Note how the cursor doesnot go to next line \c"
+read word1 word2
+
+echo "<----------------------Basename Command-------------------------->"
+path="home/suraj/test.txt"
+echo "This is without any change to path variable:"
+echo "$path"
+echo "Here we use '$(basename path)' and echo it"
+base=$(basename "$path")
+echo "$base"
+echo "<-------------------------Printf--------------------------------->"
+echo "The format is : printf 'Statement' values for statements"
+echo "For % symbol use %%."
+echo "All types of format for characters are"
+echo "%d for integer"
+printf "Example: This is a number %d.\n" 10
+echo "%u for unsigned integer"
+printf "Example: This is an unsigned integer %u.\n" -20
+echo "%x for hex numbers and %X for CAPITAL HEX NUMBERS"
+printf "Example: The hex of %d is %x.\n"11 11
+echo "%s for string and %c for character"
+printf "Example: This is a word %s where as if I use for character it will give me %c\n" suraj suraj
+echo "%b for string containing backslash escape character"
+printf "Example: I am passing two words seperated by backslash but this will only print without backslash: %b\n" suraj\shrestha
+
