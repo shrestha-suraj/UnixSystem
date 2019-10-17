@@ -20,7 +20,7 @@ echo 'Modern technique: if [ args1 = args2] then (Command)'
 echo 'Example:Say x=1 lets see if the prgoram works when we compare x and 1'
 
 x=1
-if [ "$x" = 1]
+if [ "$x" = 1 ]
 then
 echo "X is equal to 1"
 else
