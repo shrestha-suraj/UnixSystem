@@ -1,0 +1,82 @@
+echo "<-----------------------------------FILE SYSTEM------------------------------------->"
+echo "File Sysytem: The data structure that an OS uses to write, retrive and track data on a drive"
+echo "4 types of Linux File Syesytem:"
+echo ""
+echo "ext2- based on Berkeley Fast File System. It replaced MINIX which was used in early builds of Linux."
+echo "Max File Size: 16GB, Max Volume Size: 4 TB"
+
+echo "ext3-introduced jornaling. Max File Size: 2TB Max Volume Size: 32 TB"
+echo "Journaling is a data structure (it is basically a log file) introduced in ext3 that keeps track of changes during disk writing."
+echo "ext4-introcuced checksums in journaling. MAx File Size: 16TB, Max Volume Size: 1EB"
+echo "Checksums in journaling to read reliability."
+echo "xfs- designed by Silicon Graphics to be a high performance journaling filesystem capable of parallel input/output"
+
+echo "<-----------------------------------PARTITIONS---------------------------------------->"
+echo "Partitions are the logical segments of a drive."
+echo "Each hard disk can have several partitions but each partition can have only one file system."
+echo "This make dual booting a computer with different OS possible."
+echo "----------Partition Schemas---------------"
+echo "Traditional: One partition per OS and can include swap space(extension for RAM)"
+echo "LVM- Logical Volume Management"
+echo "LVM uses volume groups to grant more flexibility in growing, shrinking and moving partitions after they are created."
+echo "To understand this in simple words.Let, Physica Disk with Volume PV-10GB, PV-12GB, PV-15GB."
+echo "Total Volumen Group (VG)=10+12+15 GB"
+echo "Logical Volumes LV-1 LV-2 LV-3"
+echo "These logical volumens will expand and shrink depending on the necessasity of the space. Similary to docker containers"
+
+echo "<------------------------------PARTITION STRUCTURES----------------------------------->"
+echo "The structures (divisions) of a partition are determined by the filesystem. In general partitions are divided into 4 structures."
+echo "Terms before going to those sstructures"
+echo "Sector: The minimum storage unit of a hard drive. Typically have 4 KB secors."
+echo "Block: In Linux, block is a grouping of sectors. Cluster: In Windows, cluster is a grouping of sections."
+
+echo "Now to types of partition structures:"
+
+echo "Boot Block: The boot block is usualy the first few sectors of a partition and stores a boot loader, which is a small program that loads the OS kernal to the RAM."
+echo "		> Most linux distribution uses GRUB (Grand Unified Bootloader) as their boot loader."
+echo "Superblock: This block contains metadata needed for the filesystem. This metadata includes: geometry of the disk, size of partition, the number of inodes and data blocks, and several other pieces of metadata, notably, the mount count/max mount count."
+echo "		> Mount count/max mount count are two numbers used to determine how many times the filesystem has been loaded. Once mount count equals max mount count, filesystem check is run to cleann any inconsisitencies that occured during read/write operations or improper system shutdowns."
+
+echo "Inode Block: Innode block is a block that holds data about the other files in the OS, inodes contain information about a file, such as the UID (User Id) of the file's owner, where the file is physically present on the disk and how many links point towards the file."
+
+echo "Free List: List of block available for storage. Empty blocks"
+
+echo "Data Block: Data block are the blocks that hold the actual data. A data block can belong to only one file. If a data block is not allocated to a file, it is listed in the FREE LIST."
+
+echo "<----------------------------------------Links------------------------------------------------->"
+echo "There are two types of Links: 1) Hard Links and Symbolic Links"
+echo "Use ln Existing_File NewFile_Name to create hard link"
+echo "Hard Link is a pointer that points to the inode for the file."
+echo "Disadvantage: Cannot point to a folder and cannot link file in a different file system even if same version."
+echo "I demoed by creating file called word1_link of file word1, when i edited the link file the original changed too."
+
+echo "Use ln -s OR --symbolic Existing_File_Or_Folder New_File_Or_Folder for Symbolic Links"
+echo "	* They can link to directories and also files stored on different file systems."
+echo "	* The symbolic link points to pathname of file rather than inodes due to which this is possible."
+echo "	* I demoed by creating file called word1_slink. Change in this file affected both word1_link and word1 files."
+
+echo "NOTE: If I do list tag with i i.e. ls -i   Any two files having same values of inode are hard linked."
+echo "NOTE: If I do list tag with l i.e. ls -l	 Any files that has arrow symbol to other file is symbolic linked. Example: word1_slink->word1"
+
+
+echo "<---------------------------------------GRUB-------------------------------------------------->"
+echo "*	Full Form: Grand Unified Bootloader"
+echo "*	Grub allows users tho boot into recovery mode and attempt filesystem repair if the OS kernal cannot load."
+echo "*	Grub allows CHAINLOADING where it passes the boot process off to proprietary boot loaders like NTFS and thus boot Windows or other OS."
+
+echo "Grub Files"
+echo "Directory: /boot/grub/grub.cfg"
+echo "	>	Configure file for grub but changing it is not usefula as it gets overwritten when we use update-grub or grup-mkconfig"
+echo "Directory: /etc/default/grub"
+echo "	>	Contains default grub config informations. Changes made here will affect grub config file when we run grub-mkconfig"
+echo "Directory: /etc/grub.d"
+echo "	>	Diectory that stores scripts that run GRUB. Any changes made to this file will affect config file when we run grub-mkconfig"
+
+echo "NOTE: Important Variable found in /etc/default/grub"
+echo "GRUB_DEFAULT - Usually the value is 0 and is the default value for which boot loader to run by default"
+echo "GRUB_HIDDEN_TIMEOUT - Hides grub menu and specifies number of seconds before booting the system. Setting this to 0 gives grub just time enough to detect shift press by user to show the grub and choose operating system."
+echo "GRUB_TIMEOUT - Time grub will be open before selecting the default bootloader. Setting this to 0 gives group no time to load grub UI and the default OS runs everytime with no time to see the grub."
+
+
+
+

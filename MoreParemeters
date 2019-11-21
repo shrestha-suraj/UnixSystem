@@ -1,0 +1,7 @@
+echo  "<---------------------Parameter Appending----------------------->"
+echo "Assigning variable called name to Suraj"
+name="Suraj"
+echo "Done"
+echo "Lets try to call name and also add Shrestha to it."
+echo ${name}Shrestha
+echo "It works"
